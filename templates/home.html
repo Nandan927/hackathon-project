@@ -1,13 +1,157 @@
-<h2>Home Feed</h2>
-<a href="/add_post">Add Post</a> |
-<a href="/chatbot">Chatbot</a>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Horizon | Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+<style>
+body{
+    margin:0;
+    font-family:Poppins, sans-serif;
+    background:linear-gradient(135deg,#1f6feb,#0a2540);
+    color:white;
+}
+
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:rgba(0,0,0,0.3);
+}
+
+.navbar h2{
+    margin:0;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#1f6feb;
+}
+
+/* Hero Section */
+.hero{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero h1{
+    margin-bottom:10px;
+}
+
+.hero p{
+    opacity:0.8;
+    font-size:14px;
+}
+
+/* Posts Grid */
+.feed-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+/* Post Card */
+.post-card{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    border-radius:15px;
+    padding:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    transition:0.3s;
+}
+
+.post-card:hover{
+    transform:translateY(-8px);
+}
+
+.post-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.post-card h3{
+    margin:10px 0 5px 0;
+}
+
+.post-card p{
+    font-size:14px;
+    opacity:0.9;
+}
+
+.like-btn{
+    display:inline-block;
+    margin-top:8px;
+    padding:6px 12px;
+    background:#1f6feb;
+    border-radius:6px;
+    text-decoration:none;
+    color:white;
+    font-size:13px;
+    transition:0.3s;
+}
+
+.like-btn:hover{
+    background:#1558c0;
+}
+
+/* Footer Quote */
+.footer{
+    text-align:center;
+    padding:20px;
+    opacity:0.8;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2>HORIZON</h2>
+    <div class="nav-links">
+        <a href="/add_post">Add Post</a>
+        <a href="/chatbot">Chatbot</a>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Welcome to Your Travel Feed</h1>
+    <p>Discover new destinations. Plan smarter. Travel better.</p>
+</div>
+
+<!-- Feed -->
+<div class="feed-container">
 {% for post in posts %}
-<hr>
-<p><b>{{ post[1] }}</b></p>
-<img src="/static/uploads/{{ post[2] }}" width="200"><br>
-<p>{{ post[3] }}</p>
-<p>Budget: ₹{{ post[4] }}</p>
-<p>Likes: {{ post[5] }}</p>
-<a href="/like/{{ post[0] }}">Like</a>
+    <div class="post-card">
+        <img src="/static/uploads/{{ post[2] }}">
+        <h3>{{ post[1] }}</h3>
+        <p>{{ post[3] }}</p>
+        <p><b>Budget:</b> ₹{{ post[4] }}</p>
+        <p><b>Likes:</b> {{ post[5] }}</p>
+        <a href="/like/{{ post[0] }}" class="like-btn">Like ❤️</a>
+    </div>
 {% endfor %}
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    "Travel is the only thing you buy that makes you richer."  
+    | Horizon – Discover Your Next Adventure
+</div>
+
+</body>
+</html>
