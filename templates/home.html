@@ -8,8 +8,7 @@
 body{
     margin:0;
     font-family:Poppins, sans-serif;
-    background:linear-gradient(135deg,#1f6feb,#0a2540);
-    color:white;
+    color:rgb(0, 0, 0);
 }
 
 /* Navbar */
@@ -18,7 +17,7 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:15px 40px;
-    background:rgba(0,0,0,0.3);
+    background:linear-gradient(135deg,#89b6fa,#379bff);
 }
 
 .nav-links a{
@@ -29,12 +28,14 @@ body{
 }
 
 .nav-links a:hover{
-    color:#1f6feb;
+    color:#ffffff;
 }
-
+.navbar h2{
+    color: #ffffff;
+}
 /* Hero Section with Background Image */
 .hero{
-    height:300px;
+    height:600px;
     background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
     display:flex;
     justify-content:center;
@@ -58,19 +59,21 @@ body{
 
 .hero h1{
     margin:0;
-    font-size:32px;
+    color: white;
+    font-size:60px;
 }
 
 .hero p{
     margin-top:10px;
-    font-size:14px;
+    font-size:20px;
+    color: white;
     opacity:0.9;
 }
 
 /* Banner Images Section */
 .banner-section{
     display:flex;
-    gap:15px;
+    gap:200px;
     padding:30px 40px;
     overflow-x:auto;
 }
@@ -90,14 +93,15 @@ body{
 /* Posts Grid */
 .feed-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    height: 100px;
+    width: 400px;
     gap:25px;
     padding:40px;
 }
 
 /* Post Card */
 .post-card{
-    background:rgba(255,255,255,0.1);
+    background:rgba(255, 255, 255, 0.521);
     backdrop-filter:blur(10px);
     border-radius:15px;
     padding:15px;
