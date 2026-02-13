@@ -1,0 +1,13 @@
+<h2>Home Feed</h2>
+<a href="/add_post">Add Post</a> |
+<a href="/chatbot">Chatbot</a>
+
+{% for post in posts %}
+<hr>
+<p><b>{{ post[1] }}</b></p>
+<img src="/static/uploads/{{ post[2] }}" width="200"><br>
+<p>{{ post[3] }}</p>
+<p>Budget: ₹{{ post[4] }}</p>
+<p>Likes: {{ post[5] }}</p>
+<a href="/like/{{ post[0] }}">Like</a>
+{% endfor %}
