@@ -3,54 +3,61 @@
 <head>
 <title>HORIZON Dashboard</title>
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body{
     margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    font-family: 'Poppins', sans-serif;
+    background: url("https://images.unsplash.com/photo-1502920917128-1aa500764b6d") no-repeat center center/cover;
+    height:100vh;
     color:white;
-    overflow-x:hidden;
 }
 
-/* ===== Navbar ===== */
+/* Dark Overlay */
+.overlay{
+    background: rgba(0,0,0,0.6);
+    min-height:100vh;
+}
+
+/* Navbar */
 .navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 40px;
-    background:rgba(0,0,0,0.4);
-    backdrop-filter: blur(10px);
+    padding:20px 50px;
 }
 
 .logo{
-    font-size:26px;
-    font-weight:bold;
-    letter-spacing:2px;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:3px;
 }
 
 .nav-links a{
-    color:white;
     text-decoration:none;
-    margin-left:20px;
+    color:white;
+    margin-left:25px;
     font-weight:500;
+    transition:0.3s;
 }
 
 .nav-links a:hover{
-    color:#00f2fe;
+    color:#00e0ff;
 }
 
-/* ===== Hero Section ===== */
+/* Hero Section */
 .hero{
     text-align:center;
-    padding:60px 20px;
+    margin-top:120px;
     position:relative;
-    overflow:hidden;
 }
 
 .hero h1{
-    font-size:50px;
-    letter-spacing:3px;
-    animation: fadeIn 2s ease-in-out;
+    font-size:60px;
+    margin:0;
+    letter-spacing:4px;
 }
 
 .hero p{
@@ -59,13 +66,13 @@ body{
     opacity:0.9;
 }
 
-/* ===== Moving Plane ===== */
-.plane{
+/* Flight Animation */
+.flight{
     position:absolute;
-    top:20px;
+    top:40px;
     left:-200px;
-    font-size:40px;
-    animation: fly 12s linear infinite;
+    width:120px;
+    animation: fly 15s linear infinite;
 }
 
 @keyframes fly{
@@ -73,37 +80,24 @@ body{
     100%{ left:110%; }
 }
 
-/* ===== Moving Train ===== */
-.train{
-    position:absolute;
-    bottom:0;
-    left:-300px;
-    font-size:35px;
-    animation: trainMove 15s linear infinite;
-}
-
-@keyframes trainMove{
-    0%{ left:-300px; }
-    100%{ left:110%; }
-}
-
-/* ===== Posts Section ===== */
+/* Feed Section */
 .feed{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    padding:30px;
+    margin-top:80px;
+    padding-bottom:40px;
 }
 
 .card{
-    background:rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
     border-radius:20px;
     padding:20px;
     margin:20px;
-    width:280px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-    transition:0.3s;
+    width:300px;
+    transition:0.4s;
+    box-shadow:0 8px 30px rgba(0,0,0,0.4);
 }
 
 .card:hover{
@@ -113,38 +107,44 @@ body{
 .card img{
     width:100%;
     border-radius:15px;
-    margin-bottom:10px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin:0 0 10px;
+}
+
+.card p{
+    font-size:14px;
 }
 
 .card button{
-    background:#00f2fe;
+    background:#00e0ff;
     border:none;
-    padding:8px 15px;
+    padding:8px 18px;
     border-radius:20px;
+    font-weight:600;
     cursor:pointer;
-    font-weight:bold;
+    transition:0.3s;
 }
 
 .card button:hover{
     background:white;
 }
 
-/* ===== Footer Quote ===== */
+/* Footer */
 .footer{
     text-align:center;
     padding:20px;
-    background:rgba(0,0,0,0.3);
     font-style:italic;
-}
-
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
+    background: rgba(0,0,0,0.5);
 }
 </style>
 </head>
 
 <body>
+
+<div class="overlay">
 
 <div class="navbar">
     <div class="logo">HORIZON</div>
@@ -156,10 +156,10 @@ body{
 </div>
 
 <div class="hero">
-    <div class="plane">✈</div>
-    <div class="train">🚆</div>
-    <h1>Welcome to HORIZON</h1>
-    <p>Discover. Plan. Explore. Capture Memories.</p>
+    <!-- Flight PNG -->
+    <img src="https://cdn-icons-png.flaticon.com/512/34/34627.png" class="flight">
+    <h1>Explore The World</h1>
+    <p>Discover your next adventure with HORIZON</p>
 </div>
 
 <div class="feed">
@@ -172,7 +172,7 @@ body{
         <p><b>Budget:</b> ₹{{ post[4] }}</p>
         <p><b>Likes:</b> {{ post[5] }}</p>
         <a href="/like/{{ post[0] }}">
-            <button>❤️ Like</button>
+            <button>Like</button>
         </a>
     </div>
 {% endfor %}
@@ -180,8 +180,9 @@ body{
 </div>
 
 <div class="footer">
-    "Travel is not about the destination, it’s about the journey."
+    “Travel far, travel wide, travel beyond.”
 </div>
 
+</div>
 </body>
 </html>
