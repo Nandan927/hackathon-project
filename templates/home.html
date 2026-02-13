@@ -1,132 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>HORIZON | Explore The World</title>
+<title>HORIZON | Discover Your Next Adventure</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    height:100vh;
-    overflow:hidden;
-}
-
-/* ================= BACKGROUND ================= */
-
-.hero{
-    position:relative;
     height:100vh;
     background:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
     color:white;
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.45);
+/* Overlay */
+.overlay{
+    background:rgba(0,0,0,0.55);
+    height:100vh;
 }
 
-/* ================= CONTENT ================= */
-
-.hero-content{
-    position:relative;
-    z-index:2;
-}
-
-.hero-content h1{
-    font-size:80px;
-    font-weight:700;
-}
-
-.hero-content .highlight{
-    color:#ffcc00;
-}
-
-.hero-content p{
-    margin-top:15px;
-    font-size:20px;
-    letter-spacing:1px;
-    opacity:0.9;
-}
-
-/* ================= POLAROID CARDS ================= */
-
-.card{
-    position:absolute;
-    width:230px;
-    background:white;
-    padding:10px;
-    border-radius:6px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.5);
-    transform:rotate(-5deg);
-    transition:0.4s;
-}
-
-.card img{
-    width:100%;
-    border-radius:4px;
-}
-
-.card:hover{
-    transform:rotate(0deg) scale(1.05);
-}
-
-/* Card Positions */
-.card1{
-    bottom:40px;
-    left:50px;
-    transform:rotate(-8deg);
-}
-
-.card2{
-    top:80px;
-    right:60px;
-    transform:rotate(6deg);
-}
-
-.card3{
-    bottom:60px;
-    right:100px;
-    transform:rotate(-6deg);
-}
-
-/* ================= NAVBAR ================= */
-
+/* Navbar */
 .navbar{
-    position:absolute;
-    top:0;
-    width:100%;
     display:flex;
     justify-content:space-between;
-    padding:25px 60px;
-    z-index:3;
+    align-items:center;
+    padding:25px 70px;
 }
 
 .logo{
-    font-size:26px;
+    font-size:28px;
     font-weight:700;
     letter-spacing:3px;
 }
 
 .nav-links a{
-    color:white;
     text-decoration:none;
-    margin-left:25px;
+    color:white;
+    margin-left:30px;
     font-weight:500;
     transition:0.3s;
 }
@@ -135,32 +53,83 @@ body{
     color:#ffcc00;
 }
 
-/* ================= BUTTON ================= */
+/* Hero Section */
+.hero{
+    text-align:center;
+    margin-top:140px;
+    padding:0 20px;
+}
 
-.cta-btn{
-    margin-top:25px;
+.hero h1{
+    font-size:70px;
+    font-weight:700;
+}
+
+.hero span{
+    color:#ffcc00;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:20px;
+    opacity:0.9;
+}
+
+/* CTA Button */
+.cta{
+    margin-top:35px;
     display:inline-block;
-    padding:12px 28px;
+    padding:14px 35px;
     background:#ffcc00;
     color:black;
     font-weight:600;
-    border-radius:30px;
+    border-radius:40px;
     text-decoration:none;
     transition:0.3s;
 }
 
-.cta-btn:hover{
+.cta:hover{
     background:white;
 }
 
-/* ================= RESPONSIVE ================= */
+/* Search Section */
+.search-box{
+    margin:60px auto 0;
+    max-width:900px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
 
-@media(max-width:900px){
-    .hero-content h1{
-        font-size:45px;
+.search-box input{
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    width:180px;
+    outline:none;
+}
+
+.search-box button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ffcc00;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero h1{
+        font-size:40px;
     }
-    .card{
-        display:none;
+    .navbar{
+        padding:20px;
     }
 }
 </style>
@@ -168,7 +137,7 @@ body{
 
 <body>
 
-<div class="hero">
+<div class="overlay">
 
     <!-- Navbar -->
     <div class="navbar">
@@ -180,24 +149,20 @@ body{
         </div>
     </div>
 
-    <!-- Center Text -->
-    <div class="hero-content">
-        <h1>Explore the <span class="highlight">World</span></h1>
-        <p>Find and Share Your Travel Experiences</p>
-        <a href="/register" class="cta-btn">Start Your Journey</a>
-    </div>
+    <!-- Hero Content -->
+    <div class="hero">
+        <h1>Discover the <span>World</span></h1>
+        <p>Plan your journeys, share your experiences, and explore breathtaking destinations.</p>
+        <a href="/register" class="cta">Start Your Journey</a>
 
-    <!-- Floating Travel Images -->
-    <div class="card card1">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-    </div>
-
-    <div class="card card2">
-        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d">
-    </div>
-
-    <div class="card card3">
-        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1">
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" placeholder="From">
+            <input type="text" placeholder="To">
+            <input type="date">
+            <input type="date">
+            <button>Search Flights</button>
+        </div>
     </div>
 
 </div>
