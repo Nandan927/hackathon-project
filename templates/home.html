@@ -1,295 +1,187 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Horizon | Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>HORIZON Dashboard</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Poppins, sans-serif;
-}
-
 body{
-    background:#f5f9ff;
-    color:#333;
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+    overflow-x:hidden;
 }
 
-/* ================= NAVBAR ================= */
-
+/* ===== Navbar ===== */
 .navbar{
-    position:sticky;
-    top:0;
-    width:100%;
-    backdrop-filter:blur(12px);
-    background:rgba(255,255,255,0.8);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 60px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.05);
-    z-index:1000;
+    padding:15px 40px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
 }
 
 .logo{
-    font-size:22px;
-    font-weight:700;
-    color:#1f6feb;
+    font-size:26px;
+    font-weight:bold;
     letter-spacing:2px;
 }
 
 .nav-links a{
+    color:white;
     text-decoration:none;
-    margin:0 15px;
-    color:#333;
+    margin-left:20px;
     font-weight:500;
-    transition:0.3s;
 }
 
 .nav-links a:hover{
-    color:#1f6feb;
+    color:#00f2fe;
 }
 
-/* ================= HERO ================= */
-
+/* ===== Hero Section ===== */
 .hero{
-    height:60vh;
-    background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     text-align:center;
+    padding:60px 20px;
     position:relative;
-    color:white;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom,rgba(0,0,0,0.4),rgba(0,0,0,0.6));
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
+    overflow:hidden;
 }
 
 .hero h1{
-    font-size:42px;
-    font-weight:700;
+    font-size:50px;
+    letter-spacing:3px;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .hero p{
+    font-size:18px;
     margin-top:10px;
-    font-size:16px;
     opacity:0.9;
 }
 
-/* ================= SEARCH ================= */
+/* ===== Moving Plane ===== */
+.plane{
+    position:absolute;
+    top:20px;
+    left:-200px;
+    font-size:40px;
+    animation: fly 12s linear infinite;
+}
 
-.search-container{
-    margin-top:25px;
+@keyframes fly{
+    0%{ left:-200px; }
+    100%{ left:110%; }
+}
+
+/* ===== Moving Train ===== */
+.train{
+    position:absolute;
+    bottom:0;
+    left:-300px;
+    font-size:35px;
+    animation: trainMove 15s linear infinite;
+}
+
+@keyframes trainMove{
+    0%{ left:-300px; }
+    100%{ left:110%; }
+}
+
+/* ===== Posts Section ===== */
+.feed{
     display:flex;
+    flex-wrap:wrap;
     justify-content:center;
+    padding:30px;
 }
 
-.search-box{
-    background:white;
-    padding:8px;
-    border-radius:40px;
-    display:flex;
-    width:500px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.2);
-}
-
-.search-box input{
-    flex:1;
-    border:none;
-    outline:none;
-    padding:12px 15px;
-    border-radius:40px;
-}
-
-.search-box button{
-    border:none;
-    padding:12px 20px;
-    border-radius:40px;
-    background:linear-gradient(45deg,#1f6feb,#00c6ff);
-    color:white;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.search-box button:hover{
-    transform:scale(1.05);
-}
-
-/* ================= STATS ================= */
-
-.stats{
-    display:flex;
-    justify-content:space-around;
-    padding:40px 60px;
-    background:white;
-}
-
-.stat-box{
-    text-align:center;
-}
-
-.stat-box h2{
-    color:#1f6feb;
-}
-
-/* ================= FEED ================= */
-
-.feed-section{
-    padding:60px;
-}
-
-.feed-title{
-    text-align:center;
-    font-size:28px;
-    margin-bottom:40px;
-}
-
-.feed-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-}
-
-.post-card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.post-card:hover{
-    transform:translateY(-10px);
-}
-
-.post-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.post-content{
+.card{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius:20px;
     padding:20px;
+    margin:20px;
+    width:280px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    transition:0.3s;
 }
 
-.post-content h3{
+.card:hover{
+    transform: translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
     margin-bottom:10px;
 }
 
-.like-btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:8px 14px;
-    background:#1f6feb;
-    color:white;
-    border-radius:6px;
-    text-decoration:none;
-    font-size:14px;
+.card button{
+    background:#00f2fe;
+    border:none;
+    padding:8px 15px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-/* ================= FLOATING BUTTON ================= */
-
-.chatbot-btn{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    background:linear-gradient(45deg,#1f6feb,#00c6ff);
-    color:white;
-    padding:15px 18px;
-    border-radius:50%;
-    font-size:20px;
-    text-decoration:none;
-    box-shadow:0 8px 25px rgba(0,0,0,0.3);
-    transition:0.3s;
+.card button:hover{
+    background:white;
 }
 
-.chatbot-btn:hover{
-    transform:scale(1.1);
+/* ===== Footer Quote ===== */
+.footer{
+    text-align:center;
+    padding:20px;
+    background:rgba(0,0,0,0.3);
+    font-style:italic;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">HORIZON</div>
     <div class="nav-links">
         <a href="/add_post">Add Post</a>
-        <a href="#">Explore</a>
-        <a href="#">Trips</a>
-        <a href="#">Profile</a>
+        <a href="/chatbot">Chatbot</a>
+        <a href="/logout">Logout</a>
     </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
-    <div class="hero-content">
-        <h1>Discover Your Next Adventure</h1>
-        <p>Explore. Plan. Share. Experience the world with Horizon.</p>
-
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" placeholder="Search destinations, budgets, experiences...">
-                <button>Search</button>
-            </div>
-        </div>
-    </div>
+    <div class="plane">✈</div>
+    <div class="train">🚆</div>
+    <h1>Welcome to HORIZON</h1>
+    <p>Discover. Plan. Explore. Capture Memories.</p>
 </div>
 
-<!-- STATS -->
-<div class="stats">
-    <div class="stat-box">
-        <h2>500+</h2>
-        <p>Destinations</p>
+<div class="feed">
+
+{% for post in posts %}
+    <div class="card">
+        <img src="/static/uploads/{{ post[2] }}">
+        <h3>{{ post[1] }}</h3>
+        <p>{{ post[3] }}</p>
+        <p><b>Budget:</b> ₹{{ post[4] }}</p>
+        <p><b>Likes:</b> {{ post[5] }}</p>
+        <a href="/like/{{ post[0] }}">
+            <button>❤️ Like</button>
+        </a>
     </div>
-    <div class="stat-box">
-        <h2>1200+</h2>
-        <p>Travel Stories</p>
-    </div>
-    <div class="stat-box">
-        <h2>10K+</h2>
-        <p>Happy Travelers</p>
-    </div>
+{% endfor %}
+
 </div>
 
-<!-- FEED -->
-<div class="feed-section">
-    <div class="feed-title">Traveler Feed</div>
-
-    <div class="feed-container">
-        {% for post in posts %}
-        <div class="post-card">
-            <img src="/static/uploads/{{ post[2] }}"
-                 onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e';">
-            <div class="post-content">
-                <h3>{{ post[1] }}</h3>
-                <p>{{ post[3] }}</p>
-                <p><b>Budget:</b> ₹{{ post[4] }}</p>
-                <p><b>Likes:</b> {{ post[5] }}</p>
-                <a href="/like/{{ post[0] }}" class="like-btn">Like ❤️</a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+<div class="footer">
+    "Travel is not about the destination, it’s about the journey."
 </div>
-
-<!-- FLOATING CHATBOT -->
-<a href="/chatbot" class="chatbot-btn">💬</a>
 
 </body>
 </html>
