@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>HORIZON | Discover Your Next Adventure</title>
+<title>HORIZON | Home</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -17,26 +17,27 @@
 
 body{
     height:100vh;
-    background:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") center/cover no-repeat;
+    background:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") no-repeat center center/cover;
     color:white;
 }
 
-/* Overlay */
+/* Dark Overlay */
 .overlay{
     background:rgba(0,0,0,0.55);
     height:100vh;
 }
 
-/* Navbar */
+/* ================= NAVBAR ================= */
+
 .navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:25px 70px;
+    padding:20px 60px;
 }
 
 .logo{
-    font-size:28px;
+    font-size:26px;
     font-weight:700;
     letter-spacing:3px;
 }
@@ -53,15 +54,19 @@ body{
     color:#ffcc00;
 }
 
-/* Hero Section */
+/* ================= HERO SECTION ================= */
+
 .hero{
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    margin-top:140px;
-    padding:0 20px;
+    flex-direction:column;
 }
 
 .hero h1{
-    font-size:70px;
+    font-size:65px;
     font-weight:700;
 }
 
@@ -75,52 +80,20 @@ body{
     opacity:0.9;
 }
 
-/* CTA Button */
-.cta{
-    margin-top:35px;
-    display:inline-block;
+/* Button */
+.hero-btn{
+    margin-top:30px;
     padding:14px 35px;
     background:#ffcc00;
     color:black;
-    font-weight:600;
     border-radius:40px;
     text-decoration:none;
+    font-weight:600;
     transition:0.3s;
 }
 
-.cta:hover{
+.hero-btn:hover{
     background:white;
-}
-
-/* Search Section */
-.search-box{
-    margin:60px auto 0;
-    max-width:900px;
-    background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-    padding:25px;
-    border-radius:20px;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-}
-
-.search-box input{
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    width:180px;
-    outline:none;
-}
-
-.search-box button{
-    padding:12px 25px;
-    border:none;
-    border-radius:30px;
-    background:#ffcc00;
-    font-weight:600;
-    cursor:pointer;
 }
 
 /* Responsive */
@@ -133,36 +106,30 @@ body{
     }
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="overlay">
 
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <div class="navbar">
         <div class="logo">HORIZON</div>
+
         <div class="nav-links">
-            <a href="/login">Login</a>
-            <a href="/register">Sign Up</a>
-            <a href="/dashboard">Explore</a>
+            <a href="/explore">Explore</a>
+            <a href="/feed">Feed</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
         </div>
     </div>
 
-    <!-- Hero Content -->
+    <!-- HERO CONTENT -->
     <div class="hero">
-        <h1>Discover the <span>World</span></h1>
-        <p>Plan your journeys, share your experiences, and explore breathtaking destinations.</p>
-        <a href="/register" class="cta">Start Your Journey</a>
-
-        <!-- Search Box -->
-        <div class="search-box">
-            <input type="text" placeholder="From">
-            <input type="text" placeholder="To">
-            <input type="date">
-            <input type="date">
-            <button>Search Flights</button>
-        </div>
+        <h1>Discover Your <span>Adventure</span></h1>
+        <p>Explore breathtaking destinations and create unforgettable memories.</p>
+        <a href="/explore" class="hero-btn">Start Exploring</a>
     </div>
 
 </div>
