@@ -32,6 +32,7 @@
     letter-spacing:2px;
 }
 
+<<<<<<< HEAD
 .nav-links a{
     color:white;
     text-decoration:none;
@@ -138,6 +139,21 @@
 
 .search-box button:hover{
     transform:scale(1.05);
+=======
+.navbar h2{
+    margin:0;
+}
+
+/* Hero */
+.hero{
+    padding:40px;
+    text-align:center;
+}
+
+.hero h1{
+    margin:0;
+    font-size:30px;
+>>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
 }
 
 /* ================= FEED SECTION ================= */
@@ -157,11 +173,21 @@
 .feed-container{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+<<<<<<< HEAD
     gap:30px;
+=======
+    gap:25px;
+    padding:20px 40px 100px 40px; /* bottom space for taskbar */
+>>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
 }
 
 .post-card{
+<<<<<<< HEAD
     background:white;
+=======
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+>>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
     border-radius:15px;
     overflow:hidden;
     box-shadow:0 10px 30px rgba(0,0,0,0.1);
@@ -169,7 +195,11 @@
 }
 
 .post-card:hover{
+<<<<<<< HEAD
     transform:translateY(-10px);
+=======
+    transform:translateY(-6px);
+>>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
 }
 
 .post-card img{
@@ -195,12 +225,41 @@
 
 /* ================= FOOTER ================= */
 
+<<<<<<< HEAD
 .footer{
     background:#0a2540;
     color:white;
     text-align:center;
     padding:25px;
+=======
+/* Bottom Task Bar */
+.taskbar{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-around;
+    padding:12px 0;
+>>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
 }
+
+.taskbar a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    opacity:0.7;
+    transition:0.3s;
+}
+
+.taskbar a.active,
+.taskbar a:hover{
+    opacity:1;
+    color:#1f6feb;
+    font-weight:600;
+}
+
 </style>
 </head>
 
@@ -208,6 +267,7 @@
 
 <!-- NAVBAR -->
 <div class="navbar">
+<<<<<<< HEAD
     <div class="logo">HORIZON</div>
     <div class="nav-links">
         <a href="#">Explore</a>
@@ -251,12 +311,42 @@
             </div>
         </div>
         {% endfor %}
+=======
+    <h2>HORIZON</h2>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>Explore The World 🌍</h1>
+</div>
+
+<!-- Posts Only -->
+<div class="feed-container">
+{% for post in posts %}
+    <div class="post-card">
+        <img src="/static/uploads/{{ post[2] }}" 
+             onerror="this.style.display='none';">
+        <h3>{{ post[1] }}</h3>
+        <p>{{ post[3] }}</p>
+        <p><b>Budget:</b> ₹{{ post[4] }}</p>
+        <p><b>Likes:</b> {{ post[5] }}</p>
+        <a href="/like/{{ post[0] }}" class="like-btn">Like ❤️</a>
+>>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- FOOTER -->
 <div class="footer">
     Horizon – Discover Your Next Adventure  
+=======
+<!-- Bottom Task Bar -->
+<div class="taskbar">
+    <a href="/home" class="active">Home</a>
+    <a href="/add_post">Add Post</a>
+    <a href="/chatbot">Chatbot</a>
+    <a href="/profile">Profile</a>
+>>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
 </div>
 
 </body>
