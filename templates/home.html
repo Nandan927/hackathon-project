@@ -21,70 +21,19 @@ body{
     background:rgba(0,0,0,0.3);
 }
 
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    transition:0.3s;
+.navbar h2{
+    margin:0;
 }
 
-.nav-links a:hover{
-    color:#1f6feb;
-}
-
-/* Hero Section with Background Image */
+/* Hero */
 .hero{
-    height:300px;
-    background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    padding:40px;
     text-align:center;
-    position:relative;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
 }
 
 .hero h1{
     margin:0;
-    font-size:32px;
-}
-
-.hero p{
-    margin-top:10px;
-    font-size:14px;
-    opacity:0.9;
-}
-
-/* Banner Images Section */
-.banner-section{
-    display:flex;
-    gap:15px;
-    padding:30px 40px;
-    overflow-x:auto;
-}
-
-.banner-section img{
-    width:250px;
-    height:150px;
-    object-fit:cover;
-    border-radius:12px;
-    transition:0.3s;
-}
-
-.banner-section img:hover{
-    transform:scale(1.05);
+    font-size:30px;
 }
 
 /* Posts Grid */
@@ -92,13 +41,13 @@ body{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
-    padding:40px;
+    padding:20px 40px 100px 40px; /* bottom space for taskbar */
 }
 
 /* Post Card */
 .post-card{
     background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
     border-radius:15px;
     padding:15px;
     box-shadow:0 10px 25px rgba(0,0,0,0.4);
@@ -106,7 +55,7 @@ body{
 }
 
 .post-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 }
 
 .post-card img{
@@ -131,12 +80,33 @@ body{
     background:#1558c0;
 }
 
-/* Footer */
-.footer{
-    text-align:center;
-    padding:20px;
-    opacity:0.8;
+/* Bottom Task Bar */
+.taskbar{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-around;
+    padding:12px 0;
 }
+
+.taskbar a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    opacity:0.7;
+    transition:0.3s;
+}
+
+.taskbar a.active,
+.taskbar a:hover{
+    opacity:1;
+    color:#1f6feb;
+    font-weight:600;
+}
+
 </style>
 </head>
 
@@ -145,33 +115,19 @@ body{
 <!-- Navbar -->
 <div class="navbar">
     <h2>HORIZON</h2>
-    <div class="nav-links">
-        <a href="/add_post">Add Post</a>
-        <a href="/chatbot">Chatbot</a>
-    </div>
 </div>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <div class="hero">
-    <div class="hero-content">
-        <h1>Explore The World</h1>
-        <p>Discover Your Next Adventure with Horizon</p>
-    </div>
+    <h1>Explore The World 🌍</h1>
 </div>
 
-<!-- Travel Banner Images -->
-<div class="banner-section">
-    <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
-    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1">
-    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800">
-</div>
-
-<!-- Posts -->
+<!-- Posts Only -->
 <div class="feed-container">
 {% for post in posts %}
     <div class="post-card">
-        <img src="/static/uploads/{{ post[2] }}" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e';">
+        <img src="/static/uploads/{{ post[2] }}" 
+             onerror="this.style.display='none';">
         <h3>{{ post[1] }}</h3>
         <p>{{ post[3] }}</p>
         <p><b>Budget:</b> ₹{{ post[4] }}</p>
@@ -181,12 +137,13 @@ body{
 {% endfor %}
 </div>
 
-<!-- Footer -->
-<div class="footer">
-    "Travel is the only thing you buy that makes you richer."  
-    | Horizon – Discover Your Next Adventure
+<!-- Bottom Task Bar -->
+<div class="taskbar">
+    <a href="/home" class="active">Home</a>
+    <a href="/add_post">Add Post</a>
+    <a href="/chatbot">Chatbot</a>
+    <a href="/profile">Profile</a>
 </div>
 
 </body>
 </html>
-
