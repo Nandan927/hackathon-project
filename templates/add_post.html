@@ -1,8 +1,99 @@
-<h2>Add Post</h2>
-<form method="POST" enctype="multipart/form-data">
-<input name="username" placeholder="Username"><br>
-<input name="caption" placeholder="Caption"><br>
-<input name="budget" placeholder="Budget"><br>
-<input type="file" name="image"><br>
-<button type="submit">Post</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizon | Add Post</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+/* Body */
+body{
+    background:#f5f5f5;
+    color:#111;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* Form Card */
+.add-post-card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    width:400px;
+}
+
+/* Heading */
+.add-post-card h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#1f6feb;
+}
+
+/* Inputs */
+.add-post-card input{
+    width:100%;
+    padding:12px 15px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+    outline:none;
+    transition:0.3s;
+}
+
+.add-post-card input:focus{
+    border-color:#1f6feb;
+    box-shadow:0 0 5px rgba(31,111,235,0.5);
+}
+
+/* File Input */
+.add-post-card input[type="file"]{
+    padding:5px;
+}
+
+/* Button */
+.add-post-card button{
+    width:100%;
+    padding:12px;
+    background:#1f6feb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.add-post-card button:hover{
+    background:#1558c0;
+}
+
+</style>
+</head>
+<body>
+
+<div class="add-post-card">
+    <h2>Add Post</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input name="username" placeholder="Username" required>
+        <input name="caption" placeholder="Caption" required>
+        <input name="budget" placeholder="Budget" required>
+        <input type="file" name="image" required>
+        <button type="submit">Post</button>
+    </form>
+</div>
+
+</body>
+</html>
