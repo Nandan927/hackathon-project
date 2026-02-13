@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Horizon | Discover Your Next Adventure</title>
+<title>Horizon | Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -12,61 +12,50 @@
     font-family:Poppins, sans-serif;
 }
 
+body{
+    background:#f5f9ff;
+    color:#333;
+}
+
 /* ================= NAVBAR ================= */
 
 .navbar{
-    position:absolute;
+    position:sticky;
     top:0;
     width:100%;
-    padding:20px 60px;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.8);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    z-index:10;
+    padding:15px 60px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    z-index:1000;
 }
 
 .logo{
     font-size:22px;
     font-weight:700;
-    color:white;
+    color:#1f6feb;
     letter-spacing:2px;
 }
 
-<<<<<<< HEAD
 .nav-links a{
-    color:white;
     text-decoration:none;
     margin:0 15px;
+    color:#333;
     font-weight:500;
     transition:0.3s;
 }
 
 .nav-links a:hover{
-    opacity:0.8;
+    color:#1f6feb;
 }
 
-.auth-buttons a{
-    padding:8px 18px;
-    border-radius:25px;
-    text-decoration:none;
-    margin-left:10px;
-    font-size:14px;
-}
-
-.login-btn{
-    border:1px solid white;
-    color:white;
-}
-
-.signup-btn{
-    background:linear-gradient(45deg,#1f6feb,#00c6ff);
-    color:white;
-}
-
-/* ================= HERO SECTION ================= */
+/* ================= HERO ================= */
 
 .hero{
-    height:100vh;
+    height:60vh;
     background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
     display:flex;
     justify-content:center;
@@ -81,113 +70,102 @@
     position:absolute;
     width:100%;
     height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+    background:linear-gradient(to bottom,rgba(0,0,0,0.4),rgba(0,0,0,0.6));
 }
 
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:800px;
-    padding:20px;
 }
 
 .hero h1{
-    font-size:48px;
+    font-size:42px;
     font-weight:700;
-    margin-bottom:20px;
-    text-shadow:0 4px 20px rgba(0,0,0,0.6);
 }
 
 .hero p{
+    margin-top:10px;
     font-size:16px;
-    margin-bottom:30px;
     opacity:0.9;
 }
 
-/* ================= SEARCH BAR ================= */
+/* ================= SEARCH ================= */
 
-.search-box{
+.search-container{
+    margin-top:25px;
     display:flex;
     justify-content:center;
-    backdrop-filter:blur(15px);
-    background:rgba(255,255,255,0.15);
-    padding:10px;
-    border-radius:50px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+}
+
+.search-box{
+    background:white;
+    padding:8px;
+    border-radius:40px;
+    display:flex;
+    width:500px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
 }
 
 .search-box input{
+    flex:1;
     border:none;
     outline:none;
-    padding:12px 20px;
-    border-radius:30px;
-    width:300px;
-    font-size:14px;
+    padding:12px 15px;
+    border-radius:40px;
 }
 
 .search-box button{
     border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    margin-left:10px;
-    cursor:pointer;
+    padding:12px 20px;
+    border-radius:40px;
     background:linear-gradient(45deg,#1f6feb,#00c6ff);
     color:white;
     font-weight:600;
+    cursor:pointer;
     transition:0.3s;
 }
 
 .search-box button:hover{
     transform:scale(1.05);
-=======
-.navbar h2{
-    margin:0;
 }
 
-/* Hero */
-.hero{
-    padding:40px;
+/* ================= STATS ================= */
+
+.stats{
+    display:flex;
+    justify-content:space-around;
+    padding:40px 60px;
+    background:white;
+}
+
+.stat-box{
     text-align:center;
 }
 
-.hero h1{
-    margin:0;
-    font-size:30px;
->>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
+.stat-box h2{
+    color:#1f6feb;
 }
 
-/* ================= FEED SECTION ================= */
+/* ================= FEED ================= */
 
 .feed-section{
-    padding:80px 60px;
-    background:white;
-    color:#333;
+    padding:60px;
 }
 
-.feed-section h2{
+.feed-title{
     text-align:center;
-    margin-bottom:40px;
     font-size:28px;
+    margin-bottom:40px;
 }
 
 .feed-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-<<<<<<< HEAD
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:30px;
-=======
-    gap:25px;
-    padding:20px 40px 100px 40px; /* bottom space for taskbar */
->>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
 }
 
 .post-card{
-<<<<<<< HEAD
     background:white;
-=======
-    background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(12px);
->>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
     border-radius:15px;
     overflow:hidden;
     box-shadow:0 10px 30px rgba(0,0,0,0.1);
@@ -195,16 +173,12 @@
 }
 
 .post-card:hover{
-<<<<<<< HEAD
     transform:translateY(-10px);
-=======
-    transform:translateY(-6px);
->>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
 }
 
 .post-card img{
     width:100%;
-    height:200px;
+    height:220px;
     object-fit:cover;
 }
 
@@ -212,54 +186,40 @@
     padding:20px;
 }
 
+.post-content h3{
+    margin-bottom:10px;
+}
+
 .like-btn{
     display:inline-block;
     margin-top:10px;
-    padding:6px 14px;
+    padding:8px 14px;
     background:#1f6feb;
     color:white;
-    text-decoration:none;
     border-radius:6px;
-    font-size:13px;
-}
-
-/* ================= FOOTER ================= */
-
-<<<<<<< HEAD
-.footer{
-    background:#0a2540;
-    color:white;
-    text-align:center;
-    padding:25px;
-=======
-/* Bottom Task Bar */
-.taskbar{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:space-around;
-    padding:12px 0;
->>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
-}
-
-.taskbar a{
-    color:white;
     text-decoration:none;
     font-size:14px;
-    opacity:0.7;
+}
+
+/* ================= FLOATING BUTTON ================= */
+
+.chatbot-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:linear-gradient(45deg,#1f6feb,#00c6ff);
+    color:white;
+    padding:15px 18px;
+    border-radius:50%;
+    font-size:20px;
+    text-decoration:none;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
     transition:0.3s;
 }
 
-.taskbar a.active,
-.taskbar a:hover{
-    opacity:1;
-    color:#1f6feb;
-    font-weight:600;
+.chatbot-btn:hover{
+    transform:scale(1.1);
 }
-
 </style>
 </head>
 
@@ -267,17 +227,12 @@
 
 <!-- NAVBAR -->
 <div class="navbar">
-<<<<<<< HEAD
     <div class="logo">HORIZON</div>
     <div class="nav-links">
+        <a href="/add_post">Add Post</a>
         <a href="#">Explore</a>
-        <a href="#">Plan Trip</a>
-        <a href="#">Feed</a>
+        <a href="#">Trips</a>
         <a href="#">Profile</a>
-    </div>
-    <div class="auth-buttons">
-        <a href="/login" class="login-btn">Login</a>
-        <a href="/register" class="signup-btn">Sign Up</a>
     </div>
 </div>
 
@@ -285,22 +240,41 @@
 <div class="hero">
     <div class="hero-content">
         <h1>Discover Your Next Adventure</h1>
-        <p>Explore breathtaking destinations, plan smarter trips, and share unforgettable memories with travelers worldwide.</p>
+        <p>Explore. Plan. Share. Experience the world with Horizon.</p>
 
-        <div class="search-box">
-            <input type="text" placeholder="Search destinations, trips, experiences...">
-            <button>Search</button>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Search destinations, budgets, experiences...">
+                <button>Search</button>
+            </div>
         </div>
+    </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="stat-box">
+        <h2>500+</h2>
+        <p>Destinations</p>
+    </div>
+    <div class="stat-box">
+        <h2>1200+</h2>
+        <p>Travel Stories</p>
+    </div>
+    <div class="stat-box">
+        <h2>10K+</h2>
+        <p>Happy Travelers</p>
     </div>
 </div>
 
 <!-- FEED -->
 <div class="feed-section">
-    <h2>Travelers Feed</h2>
+    <div class="feed-title">Traveler Feed</div>
+
     <div class="feed-container">
         {% for post in posts %}
         <div class="post-card">
-            <img src="/static/uploads/{{ post[2] }}" 
+            <img src="/static/uploads/{{ post[2] }}"
                  onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e';">
             <div class="post-content">
                 <h3>{{ post[1] }}</h3>
@@ -311,43 +285,11 @@
             </div>
         </div>
         {% endfor %}
-=======
-    <h2>HORIZON</h2>
-</div>
-
-<!-- Hero -->
-<div class="hero">
-    <h1>Explore The World 🌍</h1>
-</div>
-
-<!-- Posts Only -->
-<div class="feed-container">
-{% for post in posts %}
-    <div class="post-card">
-        <img src="/static/uploads/{{ post[2] }}" 
-             onerror="this.style.display='none';">
-        <h3>{{ post[1] }}</h3>
-        <p>{{ post[3] }}</p>
-        <p><b>Budget:</b> ₹{{ post[4] }}</p>
-        <p><b>Likes:</b> {{ post[5] }}</p>
-        <a href="/like/{{ post[0] }}" class="like-btn">Like ❤️</a>
->>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
     </div>
 </div>
 
-<<<<<<< HEAD
-<!-- FOOTER -->
-<div class="footer">
-    Horizon – Discover Your Next Adventure  
-=======
-<!-- Bottom Task Bar -->
-<div class="taskbar">
-    <a href="/home" class="active">Home</a>
-    <a href="/add_post">Add Post</a>
-    <a href="/chatbot">Chatbot</a>
-    <a href="/profile">Profile</a>
->>>>>>> 33f6678498ad7fc1606c4d041e06649c8a7d278a
-</div>
+<!-- FLOATING CHATBOT -->
+<a href="/chatbot" class="chatbot-btn">💬</a>
 
 </body>
 </html>
