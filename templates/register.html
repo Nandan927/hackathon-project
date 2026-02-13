@@ -19,16 +19,21 @@ body{
 /* Card */
 .register-box{
     background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(15px);
     padding:40px;
-    border-radius:15px;
-    width:360px;
+    border-radius:18px;
+    width:380px;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
     animation:fadeIn 1s ease;
+    border:1px solid rgba(255,255,255,0.2);
 }
 
-.register-box h2{
+/* Logo */
+.logo{
+    font-size:26px;
+    font-weight:600;
+    letter-spacing:2px;
     margin-bottom:5px;
 }
 
@@ -38,14 +43,14 @@ body{
     margin-bottom:20px;
 }
 
-/* Inputs */
+/* Input */
 .input-group{
     position:relative;
 }
 
 input{
     width:100%;
-    padding:12px;
+    padding:12px 40px 12px 12px;
     margin:10px 0;
     border:none;
     border-radius:8px;
@@ -72,6 +77,66 @@ button:hover{
     transform:translateY(-2px);
 }
 
+/* Divider */
+.divider{
+    margin:20px 0;
+    display:flex;
+    align-items:center;
+    text-align:center;
+}
+
+.divider::before,
+.divider::after{
+    content:'';
+    flex:1;
+    border-bottom:1px solid rgba(255,255,255,0.3);
+}
+
+.divider:not(:empty)::before{
+    margin-right:.5em;
+}
+
+.divider:not(:empty)::after{
+    margin-left:.5em;
+}
+
+/* Social Buttons */
+.social-btn{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.google{
+    background:#ffffff;
+    color:#333;
+}
+
+.google:hover{
+    background:#ddd;
+}
+
+.facebook{
+    background:#3b5998;
+    color:white;
+}
+
+.facebook:hover{
+    background:#2d4373;
+}
+
+/* Checkbox */
+.terms{
+    font-size:12px;
+    margin-top:10px;
+    opacity:0.8;
+}
+
 /* Link */
 a{
     display:block;
@@ -96,52 +161,37 @@ a:hover{
         transform:translateY(0);
     }
 }
-
-/* Show password toggle */
-.toggle-password{
-    position:absolute;
-    right:15px;
-    top:22px;
-    font-size:12px;
-    color:#1f6feb;
-    cursor:pointer;
-}
 </style>
 </head>
 
 <body>
 
 <div class="register-box">
-    <h2>Create Account</h2>
-    <div class="tagline">Start your journey with Horizon</div>
+
+    <div class="logo">HORIZON</div>
+    <div class="tagline">Discover Your Next Adventure</div>
 
     <form method="POST">
         <input name="username" placeholder="Username" required>
         <input name="email" type="email" placeholder="Email" required>
-
-        <div class="input-group">
-            <input id="password" name="password" type="password" placeholder="Password" required>
-            <span class="toggle-password" onclick="togglePassword()">Show</span>
-        </div>
-
+        <input name="password" type="password" placeholder="Password" required>
         <input name="confirm_password" type="password" placeholder="Confirm Password" required>
 
-        <button type="submit">Register</button>
+        <div class="terms">
+            <input type="checkbox" required> I agree to Terms & Conditions
+        </div>
+
+        <button type="submit">Create Account</button>
     </form>
 
-    <a href="/login">Already have an account? Login</a>
-</div>
+    <div class="divider">OR</div>
 
-<script>
-function togglePassword(){
-    var pass = document.getElementById("password");
-    if(pass.type === "password"){
-        pass.type = "text";
-    } else {
-        pass.type = "password";
-    }
-}
-</script>
+    <button class="social-btn google">Continue with Google</button>
+    <button class="social-btn facebook">Continue with Facebook</button>
+
+    <a href="/login">Already have an account? Login</a>
+
+</div>
 
 </body>
 </html>
