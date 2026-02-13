@@ -1,78 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Horizon | Discover Your Next Adventure</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Horizon | Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
+body{
     margin:0;
-    padding:0;
-    box-sizing:border-box;
     font-family:Poppins, sans-serif;
+    background:linear-gradient(135deg,#1f6feb,#0a2540);
+    color:white;
 }
 
-/* ================= NAVBAR ================= */
-
+/* Navbar */
 .navbar{
-    position:absolute;
-    top:0;
-    width:100%;
-    padding:20px 60px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    z-index:10;
-}
-
-.logo{
-    font-size:22px;
-    font-weight:700;
-    color:white;
-    letter-spacing:2px;
+    padding:15px 40px;
+    background:rgba(0,0,0,0.3);
 }
 
 .nav-links a{
     color:white;
     text-decoration:none;
-    margin:0 15px;
-    font-weight:500;
+    margin-left:20px;
     transition:0.3s;
 }
 
 .nav-links a:hover{
-    opacity:0.8;
+    color:#1f6feb;
 }
 
-.auth-buttons a{
-    padding:8px 18px;
-    border-radius:25px;
-    text-decoration:none;
-    margin-left:10px;
-    font-size:14px;
-}
-
-.login-btn{
-    border:1px solid white;
-    color:white;
-}
-
-.signup-btn{
-    background:linear-gradient(45deg,#1f6feb,#00c6ff);
-    color:white;
-}
-
-/* ================= HERO SECTION ================= */
-
+/* Hero Section with Background Image */
 .hero{
-    height:100vh;
+    height:300px;
     background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
     position:relative;
-    color:white;
 }
 
 .hero::after{
@@ -80,183 +48,143 @@
     position:absolute;
     width:100%;
     height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+    background:rgba(0,0,0,0.5);
 }
 
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:800px;
-    padding:20px;
 }
 
 .hero h1{
-    font-size:48px;
-    font-weight:700;
-    margin-bottom:20px;
-    text-shadow:0 4px 20px rgba(0,0,0,0.6);
+    margin:0;
+    font-size:32px;
 }
 
 .hero p{
-    font-size:16px;
-    margin-bottom:30px;
+    margin-top:10px;
+    font-size:14px;
     opacity:0.9;
 }
 
-/* ================= SEARCH BAR ================= */
-
-.search-box{
+/* Banner Images Section */
+.banner-section{
     display:flex;
-    justify-content:center;
-    backdrop-filter:blur(15px);
-    background:rgba(255,255,255,0.15);
-    padding:10px;
-    border-radius:50px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+    gap:15px;
+    padding:30px 40px;
+    overflow-x:auto;
 }
 
-.search-box input{
-    border:none;
-    outline:none;
-    padding:12px 20px;
-    border-radius:30px;
-    width:300px;
-    font-size:14px;
-}
-
-.search-box button{
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    margin-left:10px;
-    cursor:pointer;
-    background:linear-gradient(45deg,#1f6feb,#00c6ff);
-    color:white;
-    font-weight:600;
+.banner-section img{
+    width:250px;
+    height:150px;
+    object-fit:cover;
+    border-radius:12px;
     transition:0.3s;
 }
 
-.search-box button:hover{
+.banner-section img:hover{
     transform:scale(1.05);
 }
 
-/* ================= FEED SECTION ================= */
-
-.feed-section{
-    padding:80px 60px;
-    background:white;
-    color:#333;
-}
-
-.feed-section h2{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:28px;
-}
-
+/* Posts Grid */
 .feed-container{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+    gap:25px;
+    padding:40px;
 }
 
+/* Post Card */
 .post-card{
-    background:white;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
     border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    padding:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
     transition:0.3s;
 }
 
 .post-card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 }
 
 .post-card img{
     width:100%;
     height:200px;
     object-fit:cover;
-}
-
-.post-content{
-    padding:20px;
+    border-radius:10px;
 }
 
 .like-btn{
     display:inline-block;
-    margin-top:10px;
-    padding:6px 14px;
+    margin-top:8px;
+    padding:6px 12px;
     background:#1f6feb;
-    color:white;
-    text-decoration:none;
     border-radius:6px;
+    text-decoration:none;
+    color:white;
     font-size:13px;
 }
 
-/* ================= FOOTER ================= */
+.like-btn:hover{
+    background:#1558c0;
+}
 
+/* Footer */
 .footer{
-    background:#0a2540;
-    color:white;
     text-align:center;
-    padding:25px;
+    padding:20px;
+    opacity:0.8;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- Navbar -->
 <div class="navbar">
-    <div class="logo">HORIZON</div>
+    <h2>HORIZON</h2>
     <div class="nav-links">
-        <a href="#">Explore</a>
-        <a href="#">Plan Trip</a>
-        <a href="#">Feed</a>
-        <a href="#">Profile</a>
-    </div>
-    <div class="auth-buttons">
-        <a href="/login" class="login-btn">Login</a>
-        <a href="/register" class="signup-btn">Sign Up</a>
+        <a href="/add_post">Add Post</a>
+        <a href="/chatbot">Chatbot</a>
     </div>
 </div>
 
-<!-- HERO -->
+<!-- Hero Section -->
 <div class="hero">
     <div class="hero-content">
-        <h1>Discover Your Next Adventure</h1>
-        <p>Explore breathtaking destinations, plan smarter trips, and share unforgettable memories with travelers worldwide.</p>
-
-        <div class="search-box">
-            <input type="text" placeholder="Search destinations, trips, experiences...">
-            <button>Search</button>
-        </div>
+        <h1>Explore The World</h1>
+        <p>Discover Your Next Adventure with Horizon</p>
     </div>
 </div>
 
-<!-- FEED -->
-<div class="feed-section">
-    <h2>Travelers Feed</h2>
-    <div class="feed-container">
-        {% for post in posts %}
-        <div class="post-card">
-            <img src="/static/uploads/{{ post[2] }}" 
-                 onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e';">
-            <div class="post-content">
-                <h3>{{ post[1] }}</h3>
-                <p>{{ post[3] }}</p>
-                <p><b>Budget:</b> ₹{{ post[4] }}</p>
-                <p><b>Likes:</b> {{ post[5] }}</p>
-                <a href="/like/{{ post[0] }}" class="like-btn">Like ❤️</a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+<!-- Travel Banner Images -->
+<div class="banner-section">
+    <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1">
+    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800">
 </div>
 
-<!-- FOOTER -->
+<!-- Posts -->
+<div class="feed-container">
+{% for post in posts %}
+    <div class="post-card">
+        <img src="/static/uploads/{{ post[2] }}" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e';">
+        <h3>{{ post[1] }}</h3>
+        <p>{{ post[3] }}</p>
+        <p><b>Budget:</b> ₹{{ post[4] }}</p>
+        <p><b>Likes:</b> {{ post[5] }}</p>
+        <a href="/like/{{ post[0] }}" class="like-btn">Like ❤️</a>
+    </div>
+{% endfor %}
+</div>
+
+<!-- Footer -->
 <div class="footer">
-    Horizon – Discover Your Next Adventure  
+    "Travel is the only thing you buy that makes you richer."  
+    | Horizon – Discover Your Next Adventure
 </div>
 
 </body>
