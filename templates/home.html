@@ -5,15 +5,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
+body{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:Poppins, sans-serif;
 }
 
-/* ================= NAVBAR ================= */
+/* Dark Overlay */
+.overlay{
+    background: rgba(0,0,0,0.6);
+    min-height:100vh;
+}
 
+/* Navbar */
 .navbar{
     position:absolute;
     top:0;
@@ -26,7 +31,7 @@
 }
 
 .logo{
-    font-size:22px;
+    font-size:28px;
     font-weight:700;
     color:white;
     letter-spacing:2px;
@@ -108,6 +113,7 @@
 
 .search-box{
     display:flex;
+    flex-wrap:wrap;
     justify-content:center;
     backdrop-filter:blur(15px);
     background:rgba(255,255,255,0.15);
@@ -125,7 +131,8 @@
     font-size:14px;
 }
 
-.search-box button{
+.card button{
+    background:#00e0ff;
     border:none;
     padding:12px 25px;
     border-radius:30px;
@@ -265,7 +272,8 @@
 
 <body>
 
-<!-- NAVBAR -->
+<div class="overlay">
+
 <div class="navbar">
 <<<<<<< HEAD
     <div class="logo">HORIZON</div>
@@ -281,7 +289,6 @@
     </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
     <div class="hero-content">
         <h1>Discover Your Next Adventure</h1>
