@@ -134,5 +134,14 @@ def chatbot():
 
     return render_template("chatbot.html", response=response)
 
+@app.route("/delete_post/<int:post_id>")
+def delete_post(post_id):
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM posts WHERE id=?", (post_id,))
+    conn.commit()
+    conn.close()
+    return redirect("/home")
+
 if __name__ == "__main__":
     app.run(debug=True)
