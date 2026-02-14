@@ -126,11 +126,23 @@ def chatbot():
         budget = int(request.form["budget"])
 
         if budget < 5000:
-            response = "You can plan a local 2-day trip nearby."
-        elif budget < 15000:
-            response = "We suggest Goa or Manali for 3-4 days."
+            response = "You can plan a local 1-2 day trip nearby your city. Try hill stations or nearby beaches."
+        elif budget < 10000:
+            response = "We suggest a weekend trip to nearby cities like Jaipur, Rishikesh, or Udaipur."
+        elif budget < 20000:
+            response = "You can explore North India destinations like Manali, Shimla, or Darjeeling for 3-4 days."
+        elif budget < 35000:
+            response = "Consider Goa, Andaman Islands, or Kerala for a 4-5 day trip with comfortable stays."
+        elif budget < 50000:
+            response = "You can plan a longer domestic trip to places like Ladakh, Sikkim, or Rajasthan for 6-7 days."
+        elif budget < 80000:
+            response = "International options like Thailand, Bali, or Dubai for 5-6 days are possible."
+        elif budget < 120000:
+            response = "You can plan an international trip to Europe (like Switzerland, France) for 7-8 days."
+        elif budget < 200000:
+            response = "Consider a luxury international trip to countries like Japan, USA, or Australia for 8-10 days."
         else:
-            response = "You can plan an international trip!"
+            response = "You can go on a premium world tour including multiple international destinations with luxury stays!"
 
     return render_template("chatbot.html", response=response)
 
