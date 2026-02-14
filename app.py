@@ -155,5 +155,16 @@ def delete_post(post_id):
     conn.close()
     return redirect("/home")
 
+@app.route("/clear_users")
+def clear_users():
+    import sqlite3
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM users")  # Delete all users
+    conn.commit()
+    conn.close()
+    return "All users cleared! <a href='/home'>Back Home</a>"
+
+
 if __name__ == "__main__":
     app.run(debug=True)
